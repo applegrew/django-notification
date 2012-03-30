@@ -1,4 +1,3 @@
-=====
 Usage
 =====
 
@@ -93,7 +92,7 @@ The parameters are:
  * ``users`` is an iterable of ``User`` objects to send the notification to.
  * ``label`` is the label you used in the previous step to identify the notice
    type.
- * ``extra_content`` is a dictionary to add custom context entries to the
+ * ``extra_context`` is a dictionary to add custom context entries to the
    template used to render to notification. This is optional.
  * ``on_site`` is a boolean flag to determine whether an ``Notice`` object is
    created in the database.
@@ -104,20 +103,20 @@ The parameters are:
 Lets first break down what each does.
 
 ``send_now``
-~~~~~~~~~~~~
+------------
 
-This is a blocking call that will check each user for elgibility of the
-notice and actually peform the send.
+This is a blocking call that will check each user for eligibility of the
+notice and actually perform the send.
 
 ``queue``
-~~~~~~~~~
+---------
 
 This is a non-blocking call that will queue the call to ``send_now`` to
 be executed at a later time. To later execute the call you need to use
 the ``emit_notices`` management command.
 
 ``send``
-~~~~~~~~
+--------
 
 A proxy around ``send_now`` and ``queue``. It gets its behavior from a global
 setting named ``NOTIFICATION_QUEUE_ALL``. By default it is ``False``. This
