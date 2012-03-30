@@ -21,7 +21,7 @@ For example::
     notification.create_notice_type("friends_invite", "Invitation Received", "you have received an invitation")
 
 One good way to automatically do this notice type creation is in a
-``management.py`` file for your app, attached to the syncdb signal.
+``management.py`` file for your app, attached to the `syncdb` signal.
 Here is an example::
 
     from django.conf import settings
